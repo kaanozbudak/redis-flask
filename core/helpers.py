@@ -102,3 +102,7 @@ class RedisHelper:
         """
         is_deleted = self.instance.flushdb()
         return is_deleted
+
+    def get_hash_value(self, hash):
+        hash = self.to_byte(hash)
+        return self.instance.hgetall(hash)
