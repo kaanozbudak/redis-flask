@@ -106,3 +106,9 @@ class RedisHelper:
     def get_hash_value(self, hash):
         hash = self.to_byte(hash)
         return self.instance.hgetall(hash)
+
+    def insert_hash(self, hash, key, value): #Hash
+        key = self.to_byte(key)
+        value = self.to_byte(value)
+        hash = self.to_byte(hash)
+        self.instance.hset(hash, key, value)
